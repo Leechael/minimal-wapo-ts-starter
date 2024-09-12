@@ -4,7 +4,8 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsup --config tsup.config.ts"
+    "build": "tsup --config tsup.config.ts",
+    "start": "docker run --rm --name wapo -p 8000:80 -v $(pwd)/dist:/home/wapo phalanetwork/wapo-devserver"
   },
   "author": "Phala Network",
   "license": "Apache-2.0",
@@ -15,7 +16,8 @@
   },
   "dependencies": {
     "@hono/zod-validator": "^0.2.2",
-    "@phala/wapo-env": "^0.9.1",
-    "hono": "^4.5.4"
+    "@phala/wapo-env": "^0.9.3",
+    "hono": "^4.5.4",
+    "viem": "^2.19.9"
   }
 }
