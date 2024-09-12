@@ -7,7 +7,9 @@
     "build": "tsup --config tsup.config.ts",
     "start": "docker run --rm --name wapo -p 8000:80 -v $(pwd)/dist:/home/wapo phalanetwork/wapo-devserver",
     "watch": "npm-watch",
-    "dev": "concurrently \"npm:watch\" \"npm:start\""
+    "dev": "concurrently \"npm:watch\" \"npm:start\"",
+    "test": "vitest",
+    "ci": "npm run build && vitest --coverage --run"
   },
   "watch": {
     "build": {
@@ -22,14 +24,16 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "@types/node": "^22.1.0",
+    "@vitest/coverage-v8": "^2.0.5",
     "concurrently": "^9.0.1",
     "npm-watch": "^0.13.0",
     "tsup": "^8.2.4",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
   },
   "dependencies": {
     "@hono/zod-validator": "^0.2.2",
-    "@phala/wapo-env": "^0.9.3",
+    "@phala/wapo-env": "^0.9.4",
     "hono": "^4.5.4",
     "viem": "^2.19.9"
   }
